@@ -1,0 +1,60 @@
+name: 不具合の報告 / Bug report
+description: 思ったとおりに動かない、エラーが出る、落ちる、など / Something does not work as expected, an error, a crash, etc.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。同じ内容がすでに挙がっていないか、先に Issues の一覧で探してみてください。
+        ファイルの中身など、人に見せられない情報は書かないでください。
+        日本語でも英語でもかまいません。返事は日本語が基本です（英語は簡単に）。対応をお約束することはできません。
+
+        Thank you for your report. Please search the existing Issues first.
+        Do not post confidential information such as the contents of your files.
+        You may write in Japanese or English. Replies are mainly in Japanese (short English where possible). A response or a fix is not guaranteed.
+  - type: input
+    id: version
+    attributes:
+      label: AmEditor の版 / AmEditor version
+      description: 「ヘルプ」→「AmEditor について」に出ている番号 / The number shown in Help → About AmEditor
+      placeholder: 例 / e.g. 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows の版 / Windows version
+      placeholder: 例 / e.g. Windows 11 24H2
+    validations:
+      required: false
+  - type: textarea
+    id: what
+    attributes:
+      label: 起きたこと / What happened
+      description: 何が起きたか。エラーの文面があれば、そのまま貼ってください / What happened. Paste the error message as it is, if any.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現の手順 / Steps to reproduce
+      description: どの操作をすると起きるか。通常モードか vi モードか、折り返しや比較を使っていたか、も書いてもらえると助かります / Which operations trigger it. Please also tell us whether you were in normal mode or vi mode, and whether wrapping or compare was in use.
+      placeholder: |
+        1. ○○のファイルを開く / Open a file
+        2. ○○を押す / Press ...
+        3. ○○になる / ... happens
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 本来どうなってほしいか / What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: そのほか / Anything else
+      description: 画面の写真などは、ここに貼り付けられます / You can paste screenshots here.
+    validations:
+      required: false

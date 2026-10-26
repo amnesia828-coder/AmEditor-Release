@@ -1,0 +1,39 @@
+name: 機能の要望 / Feature request
+description: こうなってほしい、こんな機能がほしい、など / Something you would like AmEditor to do
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        要望ありがとうございます。いただいた要望は、AmEditor の目的やほかの機能との兼ね合いを考えて判断します。そのまま採り入れられないこともあります。
+        日本語でも英語でもかまいません。返事は日本語が基本です（英語は簡単に）。対応をお約束することはできません。
+
+        Thank you for your request. Requests are judged against AmEditor's purpose and its other features, so some cannot be adopted as they are.
+        You may write in Japanese or English. Replies are mainly in Japanese (short English where possible). A response or a fix is not guaranteed.
+  - type: input
+    id: summary
+    attributes:
+      label: ほしいもの（一言で） / What you want (in one line)
+      placeholder: 例：grep の結果を CSV で保存したい / e.g. Save grep results as CSV
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 今、困っていること / The problem you have now
+      description: どんな場面で不便か / In what situation is it inconvenient?
+    validations:
+      required: true
+  - type: textarea
+    id: wish
+    attributes:
+      label: こう動いてほしい / How you would like it to work
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: そのほか / Anything else
+      description: ほかのエディターでの例などがあれば / Examples from other editors, if any
+    validations:
+      required: false

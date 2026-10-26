@@ -1,0 +1,2 @@
+# 「New issue」では、上の2つのフォームだけを選べるようにする（白紙の Issue は作らせない）。
+blank_issues_enabled: false
