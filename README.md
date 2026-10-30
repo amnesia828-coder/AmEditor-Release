@@ -47,7 +47,7 @@ vi の操作を知らなくても、そのまま使えます。起動すると�
 ## 動作環境
 
 - Windows 11 ( x64 )
-- .NET を別に入れる必要はありません ( AmEditor に同梱しています ) 。
+- AmEditor は .NET ランタイムを含めて配布しています。別途インストールする必要はありません。
 
 ## インストールと更新
 
@@ -107,7 +107,7 @@ GitHub のアカウントがない場合は、メール ( freewaresupport@amnesi
 **AmEditor** is a text editor for Windows 11 (x64). It works like Notepad out of the box, and you can layer vi-style editing (movement, visual selection, `:` commands, search and replace) on top whenever you want it. It opens very large text files (GB class), compares tabs side by side, and supports syntax highlighting, grep, macros and printing. The UI is available in Japanese and English.
 
 - **Download:** [Latest release](https://github.com/amnesia828-coder/AmEditor-Release/releases/latest) → get `AmEditor-Setup-<version>.exe` from **Assets**.
-- **Requirements:** Windows 11 (x64). You do **not** need to install .NET separately (it is bundled). No administrator rights are needed; it installs per user. To update, run the new installer.
+- **Requirements:** Windows 11 (x64). The .NET runtime is included with AmEditor, so you do not need to install it separately. No administrator rights are needed; it installs per user. To update, run the new installer.
 - **If Windows SmartScreen says "Windows protected your PC":** the installer is not code-signed. Click "More info", then "Run anyway". To verify the download, compare the SHA-256 value shown on the release page with the output of `Get-FileHash <file>` in PowerShell.
 - **Terms:** Free for individuals and organizations, personal or commercial use, with no limit on installations. Please do not redistribute modified copies, and distribute only through this page (redistribution inside your own organization is allowed under conditions). The software is provided "as is" without warranty. The Japanese text of the [Terms of Use](TERMS.md) is authoritative; an [English reference translation](TERMS.en.md) is provided and is not legally binding.
 - **English UI:** the English screens were translated by the author and have **not** been reviewed by a native English speaker. If you find something odd, please let us know.
