@@ -8,6 +8,7 @@ Please read these terms before using AmEditor (the “Software”). By installin
 
 - Anyone can use AmEditor for any purpose, free of charge. There is no limit on the number of installations.
 - Copyright belongs to the author. Please do not distribute modified versions or analyze the Software's internals.
+- Please do not redraw the bundled character art. Deleting it is entirely up to you, and so is using art you drew yourself.
 - Please distribute it only through the official distribution page. Sharing it within your own company or school is fine.
 - The Software is provided as it is. The author cannot take responsibility for things like data loss. Back up important files before editing them.
 - Support (Amazon eGift Card) is very welcome but entirely voluntary. Whether or not you send one, the features and the handling of requests are the same.
@@ -16,7 +17,7 @@ The formal terms follow. If there is any difference, the formal terms prevail.
 
 ## 1. Copyright
 
-Copyright in the Software belongs to its author, amnesia828. Copyright in third-party software included with the Software belongs to the respective copyright holders (Section 7).
+Copyright in the Software belongs to its author, amnesia828. Copyright in the character art that you can choose in the installer (the “Bundled Art”) also belongs to the author. Copyright in third-party software included with the Software belongs to the respective copyright holders (Section 7).
 
 ## 2. License to use
 
@@ -46,9 +47,15 @@ If an organization deploys the Software internally by a method that does not dis
 ## 5. Prohibited conduct
 
 - Modifying the Software for use or distributing a modified version.
+- Redrawing the Bundled Art for use, or distributing redrawn versions of it.
 - Decompiling, disassembling, or otherwise analyzing the Software, except to the extent permitted by law.
 - Misrepresenting the author or origin when introducing or providing the Software.
 - Using the Software for purposes that violate laws or public order and morals.
+
+The following are not prohibited conduct:
+
+- Deleting the Bundled Art, or turning the character off in the settings (this is not a modification of the Software).
+- Putting art you prepared yourself in the `mascot` folder and using it (please feel free).
 
 ## 6. No warranty and limitation of liability
 
@@ -78,3 +85,4 @@ These terms are governed by the laws of Japan.
 ---
 
 Enacted: 2026-11-01 (1.0.0)
+Revised: 2026-11-03 (1.2.0; added the handling of the Bundled Art)
