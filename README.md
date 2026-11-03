@@ -19,6 +19,7 @@ AmEditor ( アムエディタ ) は、Windows 11 向けのテキストエディ�
 - 折り返し、行番号、ルーラー、行末記号・全角空白・タブの表示、ブロックの折りたたみ
 - `.aem` マクロの実行と録画
 - 表示言語は日本語と英語
+- 遊びの機能として、キャレットの位置を、ちびキャラが指し棒で指します ( 既定はオフ。絵はインストーラーで入れるかを選べます。**同梱の絵の描き換えは禁止です**。[利用規約の第5条](TERMS.md#5-禁止事項)参照 )
 
 ### 画面の例
 
@@ -81,6 +82,9 @@ AmEditor 自体には、通信する機能はありません。文章中の URL 
 **インストールのときに「Windows によって PC が保護されました」と出ました。**
 「[インストールと更新](#インストールと更新)」の注意書きをご覧ください。
 
+**ちびキャラの絵を、描き換えて使ってもよいですか。**
+同梱の絵の描き換えや、描き換えたものを配ることは、禁止です ( [利用規約の第5条](TERMS.md#5-禁止事項) ) 。絵を削除するのは自由で、ご自分で描いた絵を `mascot` フォルダー ( `AmEditor.exe` の隣 ) に置いて使うのも自由です。絵の名前や大きさの決まりは、[最新版のリリースページ](https://github.com/amnesia828-coder/AmEditor-Release/releases/latest)に書いてあります。
+
 **不具合を見つけました。要望があります。**
 次の「不具合の報告・要望」から、お知らせください。
 
@@ -110,6 +114,7 @@ GitHub のアカウントがない場合は、メール ( freewaresupport@amnesi
 - **Requirements:** Windows 11 (x64). AmEditor is self-contained, so you do not need to install .NET separately. No administrator rights are needed; it installs per user. To update, run the new installer.
 - **If Windows SmartScreen says "Windows protected your PC":** the installer is not code-signed. Click "More info", then "Run anyway". To verify the download, compare the SHA-256 value shown on the release page with the output of `Get-FileHash <file>` in PowerShell.
 - **Terms:** Free for individuals and organizations, personal or commercial use, with no limit on installations. Please do not redistribute modified copies, and distribute only through this page (redistribution inside your own organization is allowed under conditions). The software is provided "as is" without warranty. The Japanese text of the [Terms of Use](TERMS.md) is authoritative; an [English reference translation](TERMS.en.md) is provided and is not legally binding.
+- **Character art (optional, just for fun):** a small character can point at the caret. It is off by default, and you choose whether to install the art in the installer. **Please do not redraw the bundled art** or distribute redrawn versions (Section 5 of the terms). Deleting it, or using art you drew yourself (put it in the `mascot` folder next to `AmEditor.exe`), is entirely fine.
 - **English UI:** the English screens were translated by the author and have **not** been reviewed by a native English speaker. If you find something odd, please let us know.
 - **Bug reports and requests:** please use [Issues](https://github.com/amnesia828-coder/AmEditor-Release/issues) (a GitHub account is required). Both Japanese and English are welcome; replies are mainly in Japanese, with short English where possible. No response or fix is guaranteed. Without a GitHub account you can write to freewaresupport@amnesia.to. Replies may land in your spam folder, so please allow mail from `@amnesia.to`.
 - **Support the author (optional):** if you like AmEditor, you can send an Amazon.co.jp eGift Card (these are country-specific and may not be available outside Japan; there is no need to send anything); it is a voluntary gift, not payment, and does not change features or support. See [Terms, Article 3](TERMS.en.md#3-supporting-the-author).
