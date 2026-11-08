@@ -18,6 +18,7 @@ AmEditor ( アムエディタ ) は、Windows 11 向けのテキストエディ�
 - 構文の色分け、grep、印刷、選択範囲の16進表示
 - 折り返し、行番号、ルーラー、行末記号・全角空白・タブの表示、ブロックの折りたたみ
 - `.aem` マクロの実行と録画
+- Markdown の書式付きプレビュー ( 読み取り専用。編集しながら、右に表示 ) 。画像は、書式のみ ( 読み込まない ) と、画像も表示 ( 文書の参照先から取得 ) を選べる。約400万文字を超える文書では、プレビューは出ない
 - 表示言語は日本語と英語
 - 遊びの機能として、キャレットの位置を、ちびキャラが指し棒で指します ( 既定はオフ。絵はインストーラーで入れるかを選べます。**同梱の絵の描き換えは禁止です**。[利用規約の第5条](TERMS.md#5-禁止事項)参照 )
 
@@ -49,6 +50,7 @@ vi の操作を知らなくても、そのまま使えます。起動すると�
 
 - Windows 11 ( x64 )
 - AmEditor は自己完結型アプリです。.NET を別途インストールする必要はありません。
+- Markdown のプレビューには、Microsoft Edge WebView2 ランタイムを使います ( Windows 11 には標準で入っています ) 。無くても、ほかの機能は使えます。
 
 ## インストールと更新
 
@@ -74,7 +76,12 @@ vi の操作を知らなくても、そのまま使えます。起動すると�
 個人でも仕事でも、無料で使えます。台数の制限もありません。ただし、会社や学校など、それぞれの組織の規則は守ってください。組織の中で配る場合の条件は、[利用規約の第4条](TERMS.md#4-配布)をご覧ください。
 
 **AmEditor は、インターネットに通信しますか。**
-AmEditor 自体には、通信する機能はありません。文章中の URL を `Ctrl` を押しながらクリックしたときだけ、既定のブラウザー ( またはメールソフト ) を起動します。更新の確認も自動では行いません。新しい版は、このページの最新版から入手してください。
+AmEditor 自体には、更新の確認などの通信機能はありません。通信や外部の起動が起きるのは、次の場合だけです。
+
+- 文章中の URL を `Ctrl` を押しながらクリックしたとき ( 既定のブラウザー、またはメールソフトを起動します ) 。
+- Markdown のプレビューを「画像も表示」にしたとき。文書に書かれた画像の参照先から、画像を取得します ( 外部の画像は、開くだけで取得されます ) 。「書式のみ」では、画像を読み込まず、通信しません。受け取った Markdown を開くときは、「書式のみ」のままにしてください。
+
+更新の確認は自動では行いません。新しい版は、このページの最新版から入手してください。
 
 **設定はどこで変えますか。表示言語を英語に ( 日本語に ) したいのですが。**
 メニューの「設定」→「環境設定」です。表示言語は、「外観」の先頭にあります。変更は、AmEditor を起動し直したあとに反映されます。初期値は、OS の言語に従います。
@@ -112,6 +119,7 @@ GitHub のアカウントがない場合は、メール ( freewaresupport@amnesi
 
 - **Download:** [Latest release](https://github.com/amnesia828-coder/AmEditor-Release/releases/latest) → get `AmEditor-Setup-<version>.exe` from **Assets**.
 - **Requirements:** Windows 11 (x64). AmEditor is self-contained, so you do not need to install .NET separately. No administrator rights are needed; it installs per user. To update, run the new installer.
+- **Markdown preview (read-only):** show a formatted preview of the current tab in its right half while you edit (View → Preview, or `:preview`). Images are off by default ("text formatting only", no network access); "with images" loads what the text refers to, including external URLs, so keep the default for Markdown you received. It is not shown for documents over about 4 million characters. It uses the Microsoft Edge WebView2 Runtime that ships with Windows 11.
 - **If Windows SmartScreen says "Windows protected your PC":** the installer is not code-signed. Click "More info", then "Run anyway". To verify the download, compare the SHA-256 value shown on the release page with the output of `Get-FileHash <file>` in PowerShell.
 - **Terms:** Free for individuals and organizations, personal or commercial use, with no limit on installations. Please do not redistribute modified copies, and distribute only through this page (redistribution inside your own organization is allowed under conditions). The software is provided "as is" without warranty. The Japanese text of the [Terms of Use](TERMS.md) is authoritative; an [English reference translation](TERMS.en.md) is provided and is not legally binding.
 - **Character art (optional, just for fun):** a small character can point at the caret. It is off by default, and you choose whether to install the art in the installer. **Please do not redraw the bundled art** or distribute redrawn versions (Section 5 of the terms). Deleting it, or using art you drew yourself (put it in the `mascot` folder next to `AmEditor.exe`), is entirely fine.

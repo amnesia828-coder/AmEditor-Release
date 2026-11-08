@@ -73,6 +73,10 @@ AmEditor ( 以下「本ソフト」 ) を使う前に、この規約を読んで
 - ripgrep ( MIT License )
 - Fluent UI System Icons ( MIT License )
 - .NET ランタイム ( MIT License )
+- Markdig ( BSD 2-Clause License )
+- Microsoft Edge WebView2 SDK ( Microsoft のライセンス。再配布の条件つき )
+
+Markdown のプレビューは、Windows に含まれる Microsoft Edge WebView2 ランタイムで表示します。このランタイムは、本ソフトには含まれません。
 
 ## 8. 規約の変更
 
@@ -86,3 +90,4 @@ AmEditor ( 以下「本ソフト」 ) を使う前に、この規約を読んで
 
 制定：2026年11月1日 ( 1.0.0 )
 改定：2026年11月3日 ( 1.2.0。同梱の絵の扱いを追加 )
+改定：2026年11月9日 ( 1.4.0。含まれる他者のソフトウェアに、Markdig と WebView2 SDK を追加 )
