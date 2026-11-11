@@ -72,11 +72,12 @@ The Software includes the following software, each subject to its own license. F
 - DiffPlex (Apache License 2.0)
 - ripgrep (MIT License)
 - Fluent UI System Icons (MIT License)
-- .NET runtime (MIT License)
+- .NET runtime (MIT License; the bundled-runtime edition only)
 - Markdig (BSD 2-Clause License)
+- YamlDotNet (MIT License)
 - Microsoft Edge WebView2 SDK (Microsoft license, with redistribution conditions)
 
-The Markdown preview is displayed by the Microsoft Edge WebView2 Runtime that is part of Windows. The runtime itself is not included in the Software.
+Document previews are displayed by the Microsoft Edge WebView2 Runtime that is part of Windows. The runtime itself is not included in the Software.
 
 ## 8. Changes to these terms
 
@@ -91,3 +92,4 @@ These terms are governed by the laws of Japan.
 Enacted: 2026-11-01 (1.0.0)
 Revised: 2026-11-03 (1.2.0; added the handling of the Bundled Art)
 Revised: 2026-11-09 (1.4.0; added Markdig and the WebView2 SDK to the third-party software included in the Software)
+Revised: 2026-11-11 (1.5.0; added YamlDotNet to the third-party software included in the Software; stated that the .NET runtime is included only in the bundled-runtime edition)
