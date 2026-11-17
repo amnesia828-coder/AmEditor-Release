@@ -15,9 +15,14 @@ AmEditor ( アムエディタ ) は、Windows 11 向けのテキストエディ�
 - タブと文書ウィンドウ ( MDI ) 、タブ同士の比較 ( diff ) 。比較したまま編集できる
 - 文字・行・矩形の選択、元に戻す／やり直し、自動インデント
 - 文字コード・BOM・改行コードの指定、外部での変更の検知、自動バックアップ
-- 構文の色分け、grep、印刷、選択範囲の16進表示
+- 構文の色分け、grep、印刷、選択範囲の16進表示。色分けの語・コメントの記号・ブロックと目次の規則は、言語ごとの「言語セット」にまとまっていて、環境設定の画面で、見て、複製して、直せます ( 拡張子との関連付けも、表で変えられます )
 - 折り返し、行番号、ルーラー、行末記号・全角空白・タブの表示、ブロックの折りたたみ
 - `.aem` マクロの実行と録画
+- 目次 ( アウトライン ) ：見出しや関数の一覧から、その場所へ移動できます。Markdown・HTML の見出しと、Python のインデントは、ブロックとして折りたためます
+- 同じ文書の分割表示 ( 左右・上下 ) 。片方を、読み取り専用の参照コピーにもできる
+- 最近使ったファイルのピン止め ( お気に入りファイル )
+- 文字種・文字幅の変換 ( 全角・半角、かな ) 、行頭・行末の空白の削除、タブと空白の置き換え ( `:retab` )
+- 外部コマンドとの連携 ( `:r !コマンド` で出力を挿入、`:範囲!コマンド` で範囲を加工 ) 
 - 書式付きプレビュー ( 読み取り専用。編集しながら、右に表示 ) 。Markdown に加えて、拡張子から HTML・XML・JSON・YAML を選びます ( XML・JSON・YAML は折りたたみ式の木で表示 ) 。画像は、書式のみ ( 読み込まない ) と、画像も表示 ( 文書の参照先から取得 ) を選べる。約400万文字を超える文書では、プレビューは出ない
 - 表示言語は日本語と英語
 - 遊びの機能として、キャレットの位置を、ちびキャラが指し棒で指します ( 既定はオフ。絵はインストーラーで入れるかを選べます。**同梱の絵の描き換えは禁止です**。[利用規約の第5条](TERMS.md#5-禁止事項)参照 )
@@ -31,6 +36,14 @@ AmEditor ( アムエディタ ) は、Windows 11 向けのテキストエディ�
 **ファイル横断検索 ( grep )**：フォルダーの中のファイルを探し、結果の行から、その場所へ移動できます。
 
 ![grep の結果。ファイル名と行番号つきで、一致した行を一覧表示](images/grep.png)
+
+**目次 ( アウトライン )**：見出しや関数の一覧を、左に出します。項目を選ぶと、その行へ移動します。Python のインデントや、Markdown・HTML の見出しは、ブロックとして折りたためます。
+
+![目次。左に Python の def の一覧、右に本文。選んだ項目の行へ移動する](images/outline.png)
+
+**言語セット**：色分けの語、コメントの記号、ブロックと目次の規則を、言語ごとに見て、複製して、直せます ( 環境設定の「言語セット」 ) 。標準の言語セットは、更新で元に戻るので、直すときは複製して使います。
+
+![環境設定の言語セット。言語の一覧と、Python の色分けの語・コメントの記号・ブロックの規則](images/language-sets.png)
 
 ## vi を知らない方へ
 
@@ -57,7 +70,12 @@ vi の操作を知らなくても、そのまま使えます。起動すると�
 1. [最新版のページ](https://github.com/amnesia828-coder/AmEditor-Release/releases/latest)の **Assets** から `AmEditor-Setup-<版>.exe` をダウンロードします。
 2. ダウンロードしたファイルを実行します。管理者権限は要りません ( 利用者ごとにインストールします ) 。
 
-更新するときも、新しいインストーラーを実行するだけです。設定 ( `config.amset` ) と履歴、自分で編集したブロック・コメント・マクロの定義は、そのまま残ります。
+更新するときも、新しいインストーラーを実行するだけです。設定 ( `config.amset` ) と履歴、自分で作ったマクロは、そのまま残ります。
+
+> **1.x から 2.0.0 へ更新するとき ( 互換が切れる点があります )**
+> - 色分け・コメント・ブロックの定義の仕組みを、「言語セット」に作り直しました。1.x で自分で直した定義 ( `keywords`・`comments`・`blocks` のフォルダー ) と、環境設定の古い項目 ( 拡張子ごとの関連付けなど ) は、読まれなくなります。必要なら、環境設定の「言語セット」で、作り直してください。
+> - `:set` の書き方を変えました ( `:set nonumber` は、`:set number=off` へ ) 。古い書き方は、エラーになります。マクロ ( `.aem` ) に古い書き方があれば、直してください。
+> - くわしくは、[2.0.0 のリリースノート](https://github.com/amnesia828-coder/AmEditor-Release/releases/tag/v2.0.0)をご覧ください。
 
 > **「Windows によって PC が保護されました」と出たとき**
 > インストーラーにはコード署名をしていないため、Windows の SmartScreen がこの画面を出すことがあります。「詳細情報」を押し、「実行」を選ぶと続けられます。心配なときは、リリースのページにある SHA-256 の値と、ダウンロードしたファイルの値 ( PowerShell で `Get-FileHash <ファイル>` ) が一致するかを確かめてください。
@@ -82,6 +100,9 @@ AmEditor 自体には、更新の確認などの通信機能はありません�
 - プレビューを「画像も表示」にしたとき。文書に書かれた画像の参照先から、画像を取得します ( 外部の画像は、開くだけで取得されます ) 。「書式のみ」では、画像を読み込まず、通信しません。受け取った Markdown を開くときは、「書式のみ」のままにしてください。
 
 更新の確認は自動では行いません。新しい版は、このページの最新版から入手してください。
+
+**言語ごとの色分けや、コメントの記号を変えたいのですが。**
+メニューの「設定」→「環境設定」の「言語セット」です。言語を選んで、色分けの語・コメントの記号・ブロックと目次の規則を、直せます。標準の言語セットは、更新で元に戻るので、直すときは、［複製］して、別の名前で使ってください。拡張子と言語セットの対応は、同じ画面の表で変えられます。
 
 **設定はどこで変えますか。表示言語を英語に ( 日本語に ) したいのですが。**
 メニューの「設定」→「環境設定」です。表示言語は、「外観」の先頭にあります。変更は、AmEditor を起動し直したあとに反映されます。初期値は、OS の言語に従います。
@@ -115,9 +136,10 @@ GitHub のアカウントがない場合は、メール ( freewaresupport@amnesi
 
 ## English summary
 
-**AmEditor** is a text editor for Windows 11 (x64). It works like Notepad out of the box, and you can layer vi-style editing (movement, visual selection, `:` commands, search and replace) on top whenever you want it. It opens very large text files (GB class), compares tabs side by side, and supports syntax highlighting, grep, macros and printing. The UI is available in Japanese and English.
+**AmEditor** is a text editor for Windows 11 (x64). It works like Notepad out of the box, and you can layer vi-style editing (movement, visual selection, `:` commands, search and replace) on top whenever you want it. It opens very large text files (GB class), compares tabs side by side, shows the same document in a split view, has an outline pane, and supports syntax highlighting (defined per language as an editable "language set"), grep, macros and printing. The UI is available in Japanese and English.
 
 - **Download:** [Latest release](https://github.com/amnesia828-coder/AmEditor-Release/releases/latest) → get `AmEditor-Setup-<version>.exe` from **Assets**.
+- **Updating from 1.x to 2.0.0 (some compatibility breaks):** syntax definitions were rebuilt as "language sets" (Preferences → Language Sets). Your own `keywords`, `comments` and `blocks` folders and the old related Preferences items are no longer read, so recreate them as language sets if you need them. The `:set` syntax changed (`:set nonumber` is now `:set number=off`); old forms are errors, so fix any macros (`.aem`) that use them. Your settings, history and macros are kept. See the [2.0.0 release notes](https://github.com/amnesia828-coder/AmEditor-Release/releases/tag/v2.0.0).
 - **Requirements:** Windows 11 (x64). The installer lets you choose the bundled-runtime edition (about 113 MB; .NET is not needed; the default; AmEditor is fully tested with this one) or a runtime-dependent edition (about 3 MB; uses the .NET 10 Desktop Runtime (x64) on your PC; some features may not work depending on your .NET version). For silent installs, use `/RUNTIME=self` (default) or `/RUNTIME=fd` (runtime-dependent). No administrator rights are needed; it installs per user. To update, run the new installer.
 - **Formatted preview (read-only):** show a formatted preview of the current tab in its right half while you edit (View → Preview, or `:preview`). Markdown, plus HTML, XML, JSON and YAML chosen by file extension (XML, JSON and YAML as a collapsible tree). Images are off by default ("text formatting only", no network access); "with images" loads what the text refers to, including external URLs, so keep the default for Markdown you received. It is not shown for documents over about 4 million characters. It uses the Microsoft Edge WebView2 Runtime that ships with Windows 11.
 - **If Windows SmartScreen says "Windows protected your PC":** the installer is not code-signed. Click "More info", then "Run anyway". To verify the download, compare the SHA-256 value shown on the release page with the output of `Get-FileHash <file>` in PowerShell.
