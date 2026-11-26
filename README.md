@@ -12,11 +12,12 @@ AmEditor ( アムエディタ ) は、Windows 11 向けのテキストエディ�
 
 - 通常の編集と vi の操作 ( 移動、ビジュアル選択、`:` コマンド、検索・置換 ) を切り替えて使える
 - GB 級の大きなテキストファイルを開いて、検索・置換できる
-- タブと文書ウィンドウ ( MDI ) 、タブ同士の比較 ( diff ) 。比較したまま編集できる
+- タブと文書ウィンドウ ( MDI ) 、タブ同士の比較 ( diff ) 。比較したまま編集できる ( 比較できるのは、合計 10 万行・300 万文字までです。それより大きいファイルは、開く・検索・置換だけ使えます )
 - 文字・行・矩形の選択、元に戻す／やり直し、自動インデント
 - 文字コード・BOM・改行コードの指定、外部での変更の検知、自動バックアップ
 - 構文の色分け、grep、印刷、選択範囲の16進表示。色分けの語・コメントの記号・ブロックと目次の規則は、言語ごとの「言語セット」にまとまっていて、環境設定の画面で、見て、複製して、直せます ( 拡張子との関連付けも、表で変えられます )
 - 折り返し、行番号、ルーラー、行末記号・全角空白・タブの表示、ブロックの折りたたみ
+- タブを右クリックして、そのタブだけの表示 ( 行番号、ルーラー、折り返し、ブロックライン、目次、プレビューなど ) や、タブ幅、正規表現の種類を切り替えられる ( タブを閉じると、既定に戻ります。ずっと使う値は、環境設定の「新しく開くタブの既定値」で決めます )
 - `.aem` マクロの実行と録画
 - 目次 ( アウトライン ) ：見出しや関数の一覧から、その場所へ移動できます。Markdown・HTML の見出しと、Python のインデントは、ブロックとして折りたためます
 - 同じ文書の分割表示 ( 左右・上下 ) 。片方を、読み取り専用の参照コピーにもできる
@@ -140,6 +141,8 @@ GitHub のアカウントがない場合は、メール ( freewaresupport@amnesi
 
 - **Download:** [Latest release](https://github.com/amnesia828-coder/AmEditor-Release/releases/latest) → get `AmEditor-Setup-<version>.exe` from **Assets**.
 - **Updating from 1.x to 2.0.0 (some compatibility breaks):** syntax definitions were rebuilt as "language sets" (Preferences → Language Sets). Your own `keywords`, `comments` and `blocks` folders and the old related Preferences items are no longer read, so recreate them as language sets if you need them. The `:set` syntax changed (`:set nonumber` is now `:set number=off`); old forms are errors, so fix any macros (`.aem`) that use them. Your settings, history and macros are kept. See the [2.0.0 release notes](https://github.com/amnesia828-coder/AmEditor-Release/releases/tag/v2.0.0).
+- **Per-tab view settings (right-click a tab):** toggle line numbers, ruler, word wrap, block lines, outline and preview for that tab only, and change its tab width and regex flavor. They return to the defaults when the tab is closed; set lasting values in Preferences ("Defaults for new tabs"). This replaces the old "This tab only..." dialog.
+- **Comparison (diff) size limit:** diff works on up to 100,000 lines and 3,000,000 characters in total (both tabs together). Larger files can still be opened, searched and replaced; AmEditor refuses to compare them and shows a message.
 - **Requirements:** Windows 11 (x64). The installer lets you choose the bundled-runtime edition (about 113 MB; .NET is not needed; the default; AmEditor is fully tested with this one) or a runtime-dependent edition (about 3 MB; uses the .NET 10 Desktop Runtime (x64) on your PC; some features may not work depending on your .NET version). For silent installs, use `/RUNTIME=self` (default) or `/RUNTIME=fd` (runtime-dependent). No administrator rights are needed; it installs per user. To update, run the new installer.
 - **Formatted preview (read-only):** show a formatted preview of the current tab in its right half while you edit (View → Preview, or `:preview`). Markdown, plus HTML, XML, JSON and YAML chosen by file extension (XML, JSON and YAML as a collapsible tree). Images are off by default ("text formatting only", no network access); "with images" loads what the text refers to, including external URLs, so keep the default for Markdown you received. It is not shown for documents over about 4 million characters. It uses the Microsoft Edge WebView2 Runtime that ships with Windows 11.
 - **If Windows SmartScreen says "Windows protected your PC":** the installer is not code-signed. Click "More info", then "Run anyway". To verify the download, compare the SHA-256 value shown on the release page with the output of `Get-FileHash <file>` in PowerShell.
